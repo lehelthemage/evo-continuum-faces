@@ -27,8 +27,9 @@ To install all dependencies, run:
 
 ```bash
 pip install -r requirements.txt
+```
 
-Setup
+## Setup
 
 Follow these steps to get started with the project.
 1. Clone the Repository
