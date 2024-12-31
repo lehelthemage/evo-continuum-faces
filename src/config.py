@@ -1,0 +1,7 @@
+
+TRAINING_DATA_DIR = "path_to_data"
+MODEL_SAVE_PATH = "models/generator_model.h5"
+LATENT_DIM = 100
+IMAGE_SIZE = (128, 128)
+BATCH_SIZE = 64
+EPOCHS = 10000

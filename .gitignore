@@ -1,0 +1,67 @@
+# Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Jupyter Notebooks checkpoints
+.ipynb_checkpoints/
+
+# IDE or editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.bak
+*.tmp
+
+# Model training files
+*.h5
+*.pkl
+*.pth
+*.ckpt
+*.hdf5
+
+# Data files (if too large to commit)
+data/
+datasets/
+
+# Environment variables file
+.env
+
+# Python package distribution
+dist/
+build/
+*.egg-info/
+
+# PyInstaller
+*.spec
+
+# MyPy
+.mypy_cache/
+
+# Coverage reports
+.coverage
+.coverage.*
+.cache/
+nosetests.xml
+pytest.xml
+cover/
+
+# Sphinx documentation
+docs/_build/
+
+# Pytest cache
+.pytest_cache/
