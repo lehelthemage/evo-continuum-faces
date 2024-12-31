@@ -36,14 +36,17 @@ Follow these steps to get started with the project.
 
 To get started, clone the repository to your local machine:
 
+```bash
 git clone https://github.com/yourusername/Evolutionary-Face-Generator.git
 cd Evolutionary-Face-Generator
-
+```
 2. Install the Required Dependencies
 
 Install all the required Python libraries from requirements.txt:
 
+```bash
 pip install -r requirements.txt
+```
 
 3. Prepare the Datasets
 
@@ -54,7 +57,7 @@ You will need datasets of human, hominin, and animal faces. Below is a list of d
     Hominin and Primate faces (collected manually from various sources)
 
 Download and place the datasets in the data/ folder in the following structure:
-
+```bash 
 data/
     human_faces/
         celebA/
@@ -63,34 +66,34 @@ data/
         (Homo erectus, Homo habilis, Neanderthal, etc.)
     animal_faces/
         (primate, mammal, etc.)
-
+```
 4. Data Preprocessing
 
 Before training, you need to preprocess the datasets.
 Resize and Normalize Images
 
 The images should be resized to a resolution of 1024x1024 and normalized to the range of [-1, 1]. This can be done using the scripts/data_preprocessing.py script:
-
+```bash
 python scripts/data_preprocessing.py
-
+```
 This will process and save images in the data/processed folder. If there are any specific modifications needed for the data (e.g., removing images with artifacts or aligning faces), add those steps to this script.
 Convert Images to TFRecords Format
 
 StyleGAN2 requires datasets to be in TFRecords format. Use the scripts/dataset_tool.py script to convert your images into the correct format:
-
+```bash
 python scripts/dataset_tool.py --source=data/processed/human_faces --dest=data/tfrecords/human_faces.tfrecords
 python scripts/dataset_tool.py --source=data/processed/hominin_faces --dest=data/tfrecords/hominin_faces.tfrecords
 python scripts/dataset_tool.py --source=data/processed/animal_faces --dest=data/tfrecords/animal_faces.tfrecords
-
+```
 This will convert the images into TFRecord files, which can be used for training the model.
 5. Train the StyleGAN2 Model
 
 After the data is prepared and converted to TFRecords, you can begin training the StyleGAN2 model. The training script is located in scripts/run_training.py.
 
 Run the following command to start the training process:
-
+```bash
 python scripts/run_training.py --data_dir=data/tfrecords --config=config-f --gpus=1 --mirror_augment=true --batch_size=8
-
+```
 Where:
 
     --data_dir: Path to the directory containing the TFRecord files.
@@ -103,9 +106,9 @@ During training, checkpoints will be saved in the models/ directory. You can res
 6. Generate Images from the Trained Model
 
 Once training is complete, you can generate images using the trained model. Use the scripts/run_generator.py script to generate images from the trained model:
-
+```bash
 python scripts/run_generator.py generate-images --network=models/trained_model.pkl --num_images=10
-
+```
 Where:
 
     --network: Path to the trained model checkpoint (e.g., models/trained_model.pkl).
